@@ -16,27 +16,21 @@ toggleBtn?.addEventListener("click", () => {
 });
 
 /* =========================
-   THEME TOGGLE (localStorage)
+   THEME (system preference)
 ========================= */
-const themeBtn = document.querySelector("[data-theme-toggle]");
 const root = document.documentElement;
+const prefersDarkScheme = window.matchMedia?.("(prefers-color-scheme: dark)");
 
-function setTheme(theme){
-  if(theme === "light"){
-    root.setAttribute("data-theme","light");
-  }else{
+function applyPreferredTheme(){
+  if (prefersDarkScheme?.matches) {
+    root.setAttribute("data-theme", "dark");
+  } else {
     root.removeAttribute("data-theme");
   }
-  localStorage.setItem("theme", theme);
 }
 
-const savedTheme = localStorage.getItem("theme");
-if(savedTheme) setTheme(savedTheme);
-
-themeBtn?.addEventListener("click", () => {
-  const isDark = root.getAttribute("data-theme") === "dark";
-  setTheme(isLight ? "light" : "dark");
-});
+applyPreferredTheme();
+prefersDarkScheme?.addEventListener("change", applyPreferredTheme);
 
 /* =========================
    GALLERY FILTER
