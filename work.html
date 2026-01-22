@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work — Bekah</title>
+  <meta name="description" content="Bekah’s portfolio work — selected projects and galleries." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a class="logo" href="index.html" aria-label="Home">Bekah</a>
+      <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav__links" data-nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button class="btn btn--ghost" type="button" data-theme-toggle>Theme</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container section">
+    <h1>Work</h1>
+    <p class="muted">A curated selection. Click any image to view larger.</p>
+
+    <div class="filters" role="group" aria-label="Filter work">
+      <button class="chip is-active" type="button" data-filter="all">All</button>
+      <button class="chip" type="button" data-filter="styling">Styling</button>
+      <button class="chip" type="button" data-filter="content">Content</button>
+      <button class="chip" type="button" data-filter="portraits">Portraits</button>
+    </div>
+
+    <div class="gallery" data-gallery>
+      <!-- Replace src with real images in /assets later -->
+      <button class="thumb" data-category="styling" data-full="assets/sample-1.jpg" aria-label="Open image 1">
+        <span class="thumb__placeholder">Styling</span>
+      </button>
+
+      <button class="thumb" data-category="content" data-full="assets/sample-2.jpg" aria-label="Open image 2">
+        <span class="thumb__placeholder">Content</span>
+      </button>
+
+      <button class="thumb" data-category="portraits" data-full="assets/sample-3.jpg" aria-label="Open image 3">
+        <span class="thumb__placeholder">Portraits</span>
+      </button>
+
+      <button class="thumb" data-category="styling" data-full="assets/sample-4.jpg" aria-label="Open image 4">
+        <span class="thumb__placeholder">Styling</span>
+      </button>
+
+      <button class="thumb" data-category="content" data-full="assets/sample-5.jpg" aria-label="Open image 5">
+        <span class="thumb__placeholder">Content</span>
+      </button>
+
+      <button class="thumb" data-category="portraits" data-full="assets/sample-6.jpg" aria-label="Open image 6">
+        <span class="thumb__placeholder">Portraits</span>
+      </button>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="modal" data-modal aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__content" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="modal__close btn btn--ghost btn--sm" type="button" data-close>Close</button>
+        <img class="modal__img" data-modal-img alt="Selected work" />
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="muted">© <span id="year"></span> Bekah</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

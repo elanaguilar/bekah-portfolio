@@ -2,46 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bekah — Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Bekah’s portfolio — selected work, creative services, and contact." />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Bekah</h1>
-    <p>Portfolio</p>
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <nav class="nav container">
+      <a class="logo" href="index.html" aria-label="Home">Bekah</a>
+
+      <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav__links" data-nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button class="btn btn--ghost" type="button" data-theme-toggle>Theme</button>
+      </div>
     </nav>
   </header>
 
-  <main>
-    <section id="work">
-      <h2>Work</h2>
-      <div class="grid">
-        <a class="card" href="#" target="_blank" rel="noreferrer">Project 1</a>
-        <a class="card" href="#" target="_blank" rel="noreferrer">Project 2</a>
-        <a class="card" href="#" target="_blank" rel="noreferrer">Project 3</a>
+  <main id="main">
+    <section class="hero container">
+      <div class="hero__text">
+        <p class="pill">Portfolio • Creative</p>
+        <h1>Hi, I’m <span class="accent">Bekah</span> — I create clean, intentional visuals.</h1>
+        <p class="muted">
+          I help brands and people tell a clear story through content, styling, and creative direction.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn" href="work.html">View Work</a>
+          <a class="btn btn--ghost" href="contact.html">Book / Inquire</a>
+        </div>
+
+        <div class="hero__meta">
+          <span>📍 Available remote + local</span>
+          <span>🎯 Portfolio / Content / Styling</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__cardText">
+          <h2>What I do</h2>
+          <ul class="list">
+            <li>Portfolio shoots</li>
+            <li>Brand content</li>
+            <li>Creative direction</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="link" href="about.html">Learn more →</a>
+        </div>
       </div>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>Add Bekah’s bio here.</p>
+    <section class="section container" aria-labelledby="featured">
+      <div class="section__head">
+        <h2 id="featured">Featured Work</h2>
+        <a class="link" href="work.html">See all →</a>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Editorial Set</h3>
+          <p class="muted">A clean, story-driven set focused on texture and light.</p>
+          <div class="card__tags">
+            <span class="tag">Styling</span><span class="tag">Direction</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Brand Content</h3>
+          <p class="muted">Product-focused content built for social and web.</p>
+          <div class="card__tags">
+            <span class="tag">Content</span><span class="tag">Photography</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Portrait Series</h3>
+          <p class="muted">Simple, human portraits with natural light.</p>
+          <div class="card__tags">
+            <span class="tag">Portraits</span><span class="tag">Lighting</span>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:bekah@email.com">bekah@email.com</a></p>
+    <section class="section container">
+      <div class="cta">
+        <div>
+          <h2>Ready to collaborate?</h2>
+          <p class="muted">Send a quick note and I’ll respond with next steps.</p>
+        </div>
+        <a class="btn" href="contact.html">Contact</a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <small>© <span id="year"></span> Bekah</small>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="muted">© <span id="year"></span> Bekah</p>
+      <div class="footer__links">
+        <a href="#" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
