@@ -1,36 +1,40 @@
 /* =========================
-   CLEAN GIRL / MODERN GIRLY THEME
-   Replace your entire styles.css with this file
+   BEKAH PORTFOLIO — HQ CLEAN / MODERN / PROFESSIONAL
+   Replace your entire styles.css with this file.
+   Light is default. Dark is optional via data-theme="dark".
 ========================= */
 
 /* =========================
    THEME TOKENS (Light default)
 ========================= */
 :root{
-  /* Clean, warm base */
-  --bg:#fbfaf8;                /* warm off-white */
+  /* Editorial base */
+  --bg:#ffffff;
   --card:#ffffff;
-  --text:#141316;              /* near-black */
-  --muted:#6b646a;             /* warm gray */
-  --border:rgba(20,19,22,.10);
+  --text:#111111;
+  --muted:#6f6f6f;
+  --border:rgba(0,0,0,.08);
 
-  /* Girly accent (professional) */
-  --accent:#c07a93;            /* dusty rose */
-  --accent-2:#b7a6d8;          /* soft lavender (used lightly) */
+  /* Single refined accent (muted rose) */
+  --accent:#b18495;
 
-  --radius:16px;
+  /* Layout */
+  --radius:12px;
   --container:1100px;
+
+  /* Shadow (one consistent shadow = professional) */
+  --shadow: 0 6px 20px rgba(0,0,0,.06);
 }
 
-/* Optional dark mode (still available if you keep the toggle) */
+/* Optional dark mode */
 [data-theme="dark"]{
-  --bg:#0e0c10;
-  --card:#17131a;
-  --text:#f4f1f5;
-  --muted:#b9b1bb;
-  --border:rgba(244,241,245,.10);
-  --accent:#d7a3b5;
-  --accent-2:#c7b8e6;
+  --bg:#0f0f12;
+  --card:#15151a;
+  --text:#f2f2f3;
+  --muted:#b6b6bc;
+  --border:rgba(255,255,255,.10);
+  --accent:#caa3b0;
+  --shadow: 0 10px 28px rgba(0,0,0,.35);
 }
 
 /* =========================
@@ -57,9 +61,9 @@ a{ color:inherit; text-decoration:none; }
   left:16px; top:16px;
   background: var(--card);
   padding:10px 12px;
-  border-radius:12px;
+  border-radius:10px;
   border:1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(20,19,22,.10);
+  box-shadow: var(--shadow);
 }
 
 /* =========================
@@ -69,12 +73,13 @@ a{ color:inherit; text-decoration:none; }
   width:min(100% - 32px, var(--container));
   margin-inline:auto;
 }
-.section{ padding:56px 0; }
+
+.section{ padding:72px 0; }
 
 .two-col{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap:16px;
+  gap:18px;
 }
 
 /* =========================
@@ -85,7 +90,7 @@ a{ color:inherit; text-decoration:none; }
   top:0;
   z-index:10;
   backdrop-filter: blur(12px);
-  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
   border-bottom:1px solid var(--border);
 }
 
@@ -98,19 +103,19 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .logo{
-  font-weight:800;
+  font-weight:700;
+  letter-spacing:.2px;
   padding:8px 12px;
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:10px;
   background: var(--card);
-  box-shadow: 0 10px 30px rgba(20,19,22,.06);
 }
 
 .nav__toggle{
   display:none;
   background:transparent;
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:10px;
   padding:8px 10px;
   font-size:16px;
   color:var(--text);
@@ -119,23 +124,61 @@ a{ color:inherit; text-decoration:none; }
 .nav__links{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
 .nav__links a{
   padding:10px 12px;
-  border-radius:14px;
+  border-radius:10px;
   color:var(--muted);
   font-weight:600;
 }
+
 .nav__links a.active{
-  color:var(--text);
-  background: color-mix(in oklab, var(--accent) 8%, var(--card));
-  border: 1px solid color-mix(in oklab, var(--accent) 18%, var(--border));
+  color: var(--text);
+  background: color-mix(in oklab, var(--accent) 10%, var(--card));
+  border:1px solid color-mix(in oklab, var(--accent) 18%, var(--border));
 }
+
 .nav__links a:hover{
-  background: var(--card);
-  color:var(--text);
+  color: var(--text);
+  background: color-mix(in oklab, var(--text) 4%, var(--card));
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1,h2,h3{ margin:0 0 10px; line-height:1.2; }
+h1{
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+h2{
+  font-size:1.5rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+h3{
+  font-size:1.1rem;
+  font-weight:600;
+}
+
+.muted{ color:var(--muted); }
+.small{ font-size:.9rem; }
+.list{ padding-left:18px; color:var(--muted); }
+.spacer{ height:10px; }
+
+.accent{ color: var(--accent); }
+
+.link{
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+  text-underline-offset: 3px;
+}
+.link:hover{
+  text-decoration-color: var(--accent);
 }
 
 /* =========================
@@ -144,25 +187,18 @@ a{ color:inherit; text-decoration:none; }
 .hero{
   display:grid;
   grid-template-columns: 1.2fr .8fr;
-  gap:22px;
+  gap:26px;
   align-items:start;
-  padding:56px 0 10px;
+  padding:80px 0 40px;
 }
 
 .pill{
   display:inline-block;
-  padding:6px 12px;
-  border:1px solid color-mix(in oklab, var(--accent) 22%, var(--border));
+  padding:6px 10px;
+  border:1px solid var(--border);
   border-radius:999px;
-  color: color-mix(in oklab, var(--text) 70%, var(--accent));
-  background: color-mix(in oklab, var(--accent) 8%, var(--card));
-}
-
-h1,h2,h3{ line-height:1.25; margin:0 0 10px; }
-h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
-
-.accent{
-  color: var(--accent);
+  color: var(--muted);
+  background: color-mix(in oklab, var(--text) 2%, var(--card));
 }
 
 .hero__cta{
@@ -180,30 +216,6 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   font-size:.95rem;
 }
 
-.hero__card{
-  background: var(--card);
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  padding:18px;
-  box-shadow: 0 10px 30px rgba(20,19,22,.06);
-}
-
-/* =========================
-   TYPOGRAPHY + UTIL
-========================= */
-.muted{ color:var(--muted); }
-.small{ font-size:.9rem; }
-.list{ padding-left:18px; color:var(--muted); }
-.spacer{ height:10px; }
-
-.link{
-  color: var(--accent);
-}
-.link:hover{
-  text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
-}
-
 /* =========================
    CARDS / GRID
 ========================= */
@@ -218,7 +230,15 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   border:1px solid var(--border);
   border-radius: var(--radius);
   padding:18px;
-  box-shadow: 0 10px 30px rgba(20,19,22,.06);
+  box-shadow: var(--shadow);
+}
+
+.hero__card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:18px;
+  box-shadow: var(--shadow);
 }
 
 .card__tags{
@@ -228,51 +248,49 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   margin-top:12px;
 }
 
+/* Minimal tags: professional, not playful */
 .tag{
   font-size:.82rem;
   padding:6px 10px;
   border-radius:999px;
-  background: color-mix(in oklab, var(--accent) 8%, white);
-  border: 1px solid color-mix(in oklab, var(--accent) 18%, var(--border));
-  color: color-mix(in oklab, var(--text) 80%, var(--accent));
+  border:1px solid var(--border);
+  color: var(--muted);
+  background: color-mix(in oklab, var(--text) 2%, var(--card));
 }
 
 /* =========================
-   BUTTONS
+   BUTTONS (clean + restrained)
 ========================= */
 .btn{
-  padding:10px 14px;
-  border-radius:14px;
-  border:1px solid rgba(192,122,147,.35);
+  padding:10px 16px;
+  border-radius:8px;
+  border:1px solid color-mix(in oklab, var(--accent) 30%, var(--border));
   background: var(--accent);
-  color:#fff;
-  font-weight:700;
-  box-shadow: 0 10px 25px rgba(192,122,147,.18);
+  color:#ffffff;
+  font-weight:600;
+  box-shadow:none;
 }
 
-.btn:hover{
-  filter: brightness(0.98);
-}
+.btn:hover{ filter: brightness(.98); }
 
 .btn--ghost{
-  background: transparent;
+  background:transparent;
   color: var(--text);
   border:1px solid var(--border);
-  box-shadow:none;
 }
 
 .btn--sm{
   padding:8px 10px;
-  border-radius:12px;
+  border-radius:8px;
 }
 
 /* =========================
-   CHIPS / FILTERS
+   CHIPS / FILTERS (Work page)
 ========================= */
 .filters{
   display:flex;
   gap:10px;
-  margin:20px 0;
+  margin:20px 0 26px;
   flex-wrap:wrap;
 }
 
@@ -285,20 +303,22 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
 .chip{
   padding:8px 12px;
   border-radius:999px;
-  border:1px solid color-mix(in oklab, var(--accent) 18%, var(--border));
-  background: color-mix(in oklab, var(--accent) 6%, var(--card));
-  color: color-mix(in oklab, var(--text) 80%, var(--accent));
+  border:1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
   cursor:pointer;
+  font-weight:600;
 }
 
 .chip:hover{
-  background: color-mix(in oklab, var(--accent) 10%, var(--card));
+  color: var(--text);
+  background: color-mix(in oklab, var(--text) 2%, var(--card));
 }
 
 .chip.is-active{
-  background: color-mix(in oklab, var(--accent) 16%, var(--card));
-  border-color: color-mix(in oklab, var(--accent) 30%, var(--border));
   color: var(--text);
+  border-color: color-mix(in oklab, var(--accent) 30%, var(--border));
+  background: color-mix(in oklab, var(--accent) 10%, var(--card));
 }
 
 /* =========================
@@ -310,7 +330,7 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   gap:14px;
 }
 
-/* Placeholder-style thumb (looks designed even before real images) */
+/* Designed placeholder, neutral + editorial */
 .thumb{
   position:relative;
   aspect-ratio:4/5;
@@ -320,29 +340,22 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   display:flex;
   align-items:flex-end;
   overflow:hidden;
-  background:
-    radial-gradient(1200px 400px at 20% 0%,
-      color-mix(in oklab, var(--accent) 22%, white),
-      transparent 60%),
-    radial-gradient(900px 450px at 80% 20%,
-      color-mix(in oklab, var(--accent-2) 18%, white),
-      transparent 55%),
-    linear-gradient(180deg, #ffffff, color-mix(in oklab, var(--accent) 8%, #ffffff));
-  box-shadow: 0 10px 30px rgba(20,19,22,.06);
+  background: color-mix(in oklab, var(--text) 2%, var(--card));
+  box-shadow: var(--shadow);
 }
 
 .thumb__placeholder{
   width:100%;
   padding:14px;
-  font-size:.82rem;
+  font-size:.80rem;
   text-transform:uppercase;
   letter-spacing:.12em;
-  background: rgba(255,255,255,.72);
+  color: var(--muted);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
   border-top:1px solid var(--border);
-  color: var(--text);
 }
 
-/* If you later change thumbs to real <img>, these classes will help */
+/* If later you switch thumbs to real <img> */
 .thumb img{
   width:100%;
   height:100%;
@@ -364,7 +377,7 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
 .modal__backdrop{
   position:absolute;
   inset:0;
-  background: rgba(20,19,22,.65);
+  background: rgba(0,0,0,.60);
 }
 
 .modal__content{
@@ -375,7 +388,7 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   padding:14px;
   max-width: 92vw;
   max-height: 92vh;
-  box-shadow: 0 24px 60px rgba(20,19,22,.20);
+  box-shadow: 0 24px 60px rgba(0,0,0,.20);
 }
 
 .modal__close{
@@ -387,7 +400,7 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
 .modal__img{
   max-width: 84vw;
   max-height: 84vh;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 /* =========================
@@ -402,7 +415,7 @@ h1{ font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-.2px; }
   border:1px solid var(--border);
   border-radius: var(--radius);
   padding:22px;
-  box-shadow: 0 10px 30px rgba(20,19,22,.06);
+  box-shadow: var(--shadow);
 }
 
 /* =========================
@@ -418,7 +431,7 @@ input, textarea, select{
   width:100%;
   margin-top:6px;
   padding:10px 12px;
-  border-radius:14px;
+  border-radius:10px;
   border:1px solid var(--border);
   background: transparent;
   color: var(--text);
@@ -426,14 +439,15 @@ input, textarea, select{
 }
 
 input:focus, textarea:focus, select:focus{
-  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 14%, transparent);
 }
 
 label{
   display:block;
   margin:12px 0;
   color: var(--muted);
+  font-weight:600;
 }
 
 /* =========================
@@ -460,7 +474,7 @@ label{
    RESPONSIVE
 ========================= */
 @media (max-width: 900px){
-  .hero{ grid-template-columns:1fr; }
+  .hero{ grid-template-columns:1fr; padding:64px 0 28px; }
   .grid{ grid-template-columns:1fr; }
   .two-col{ grid-template-columns:1fr; }
   .contact{ grid-template-columns:1fr; }
@@ -473,11 +487,11 @@ label{
     right:16px;
     background: var(--card);
     border:1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 12px;
     padding:10px;
     flex-direction:column;
-    min-width: 200px;
-    box-shadow: 0 20px 50px rgba(20,19,22,.14);
+    min-width: 210px;
+    box-shadow: var(--shadow);
   }
   .nav__links.open{ display:flex; }
 
