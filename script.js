@@ -34,8 +34,8 @@ const savedTheme = localStorage.getItem("theme");
 if(savedTheme) setTheme(savedTheme);
 
 themeBtn?.addEventListener("click", () => {
-  const isLight = root.getAttribute("data-theme") === "light";
-  setTheme(isLight ? "dark" : "light");
+  const isDark = root.getAttribute("data-theme") === "dark";
+  setTheme(isLight ? "light" : "dark");
 });
 
 /* =========================
